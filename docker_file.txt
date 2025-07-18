@@ -1,0 +1,13 @@
+From  httpd:latest
+
+# Copy all files to Apache's default web root
+COPY . /usr/local/apache2/htdocs/
+
+# Overwrite index.html with india.html if index.html doesn't exist or is default
+RUN cd /usr/local/apache2/htdocs/ && \
+    # Overwrite index.html with india.html explicitly
+    if [ -f india.html ]; then \
+      cp india.html index.html && echo "india.html copied to index.html"; \
+    fi && \
+    # Delete all other .html files except index.html
+    find . -type f -name "*.html" ! -name "index.html" -delete
