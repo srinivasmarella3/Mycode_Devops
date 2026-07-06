@@ -1,0 +1,2 @@
+User name	Password	Console sign-in URL
+srinivas	Srinu@1204	https://330546662861.signin.aws.amazon.com/console
